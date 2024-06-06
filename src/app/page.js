@@ -20,7 +20,7 @@ export default async function Home() {
     const db = client.db('mydb');
     let result = await db.collection('post').find().toArray();
     console.log(result);
-    let aa = 'a';
+    
 
     return (
         <div>
