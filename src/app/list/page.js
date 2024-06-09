@@ -18,6 +18,7 @@ export default async function List(){
                                     <h4>{item.title}</h4>
                                     <p>{item.content}</p>
                                 </Link>
+                                <Link href={'/edit/' + item._id}>✏️수정</Link>
                             </div>            
                         )
                     }) : null

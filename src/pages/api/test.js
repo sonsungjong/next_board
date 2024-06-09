@@ -14,3 +14,5 @@ export default function handler(req, res){
 // 서버기능 성공시 200
 // 서버기능 실패시 500
 // 요청실수 400
+
+// pages 폴더의 api 폴더에 .js파일을 만들면 서버URL 로 취급
