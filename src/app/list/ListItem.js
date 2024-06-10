@@ -1,15 +1,18 @@
 'use client'
 
 import Link from "next/link"
+import { useState } from "react";
 
 // 클라이언트 컴포넌트로 분리
 
 export default function ListItem({result}){
 
+    const [listData, setListData] = useState(result);
+
     return(
         <>
             {
-                result && result.length > 0 ? result.map((item, index)=>{
+                listData && listData.length > 0 ? listData.map((item, index)=>{
                     return(
                         <div className="list-item" key={index}>
                             <Link href={`/detail/` + item._id}>
@@ -20,17 +23,21 @@ export default function ListItem({result}){
                             <span onClick={()=>{
                                 fetch('/api/delete/list_item', {
                                     method: 'DELETE',
-                                    body:item._id
+                                    headers: {
+                                        'Content-Type': 'application/json'
+                                    },
+                                    body: JSON.stringify({ id: item._id }) // id를 JSON으로 전송
                                 })
                                 .then((res)=>{
                                     if(res.status == 200){
+                                        setListData(prevListData => prevListData.filter((i) => i._id !== item._id));
                                         return res.json();
                                     }else{
                                         return "500";
                                     }
                                 })
-                                .then((result)=>{
-                                    console.log(result);
+                                .then((data)=>{
+                                    console.log(data + '완~');
                                 })
                                 .catch((error)=>{
                                     console.log(error);

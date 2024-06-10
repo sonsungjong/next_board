@@ -8,9 +8,11 @@ export default async function listItemHandler(req, res)
     if(req.method == 'DELETE')
     {
         try{
+            const {id} = req.body;
+
             const db = (await connectDB).db('mydb');
              let result = await db.collection('post').deleteOne(
-                 {_id: ObjectId.createFromHexString(req.body)}
+                 {_id: ObjectId.createFromHexString(id)}
              );
              console.log(result);
             res.status(200).json('삭제완료');
