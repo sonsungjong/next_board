@@ -1,6 +1,9 @@
 import { connectDB } from "@/util/db"
 import ListItem from "./ListItem"
 
+//export const dynamic = 'force-dynamic'              // 빌드시 dynamic 페이지로 빌드되어야할 때 기입
+export const revalidate = 20;               // 20초마다 캐싱
+
 export default async function List(){
 
     // 늦게 처리되는 코드를 건너뛰지말고 기다려라 await

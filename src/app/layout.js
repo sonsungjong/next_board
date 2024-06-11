@@ -23,3 +23,12 @@ export default function RootLayout({ children }) {
     </html>
   );
 }
+
+// 회원가입하면 서버를 통해 DB에 저장하고
+// 로그인하면 서버를 통해 아이디와 비번이 DB와 일치하는지 비교하고
+// 맞으면 입장권 발급
+// 서버에 Get/Post요청시 입장권 함께 제출하게 작성
+// `쿠키저장소` 이용
+// session(ID) 또는 token(JWT) 입장권
+// OAuth : 타사이트 정보 이용 (소셜로그인)
+// Auth.js, NextAuth.js 라이브러리 제공

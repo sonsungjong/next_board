@@ -12,6 +12,7 @@ import { connectDB } from "@/util/db";
 // 7. Browse Collection 에서 데이터베이스 생성
 // 8. npm install mongodb
 
+export const revalidate = 60;         // 60초 동안 캐싱
 
 export default async function Home() {
 
@@ -36,3 +37,16 @@ export default async function Home() {
     );
   }
 }
+
+// 배포하려면 npm run build
+// 클라우드에 올리고 npm run start
+
+// (Dynamic) 이 필요한데 (Static)으로 되어있으면 Dynamic으로 바꿔줘야함
+// export const dynamic = 'force-dynamic'               // // export const dynamic = 'force-static'
+
+// (Dynamic) 은 접속할 때마다 새로 작성 : 화면 갱신 가능 (캐싱기능 활용해서 부담 경량화 가능)
+// (Static) 은 고정페이지 : 서버/DB부담 적음
+
+// 캐싱 : 페이지 또는 요청결과를 잠깐 저장하고 재사용
+// await fetch('/URL', {cache:'force-cache})
+// export const revalidate = 초;        // 캐싱 변수
