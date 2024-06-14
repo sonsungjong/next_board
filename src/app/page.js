@@ -3,6 +3,7 @@ import styles from "./page.module.css";
 import { MongoClient } from "mongodb";
 import { connectDB } from "@/util/db";
 
+// 0. npx create-next-app@latest next_board
 // 1. pagejs, globalscss, pagemodulecss 를 비운다
 // 2. 관계형DB : 표로 저장, 비관계형DB : 표가 아닌 형식으로 저장
 // 3. mongodb.com 호스팅 서비스 이용 (로그인)
