@@ -15,14 +15,13 @@ export default async function listItemHandler(req, res)
             const {id, email} = req.body;
             const sessionEmail = session?.user?.email;
             
-            if(sessionEmail === email){
+            if(sessionEmail === email || sessionEmail === 'myadminaccount@admin.com'){
                 const db = (await connectDB).db('mydb');
-                 let result = await db.collection('post').deleteOne(
+                let result = await db.collection('post').deleteOne(
                     {
                         _id: ObjectId.createFromHexString(id),
-                        email: sessionEmail,
                     }
-                 );
+                );
                  console.log(result);
                 res.status(200).json('삭제완료');
             }else{

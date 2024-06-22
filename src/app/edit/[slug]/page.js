@@ -13,7 +13,7 @@ export default async function Edit({params})
         let result = await db.collection('post').findOne({_id:ObjectId.createFromHexString(params.slug)})
         console.log(result)
     
-        if(session.user?.email === result.email){
+        if(session.user?.email === result.email || session.user?.email === 'myadminaccount@admin.com'){
             // _id 필드를 문자열로 변환해서 사용할 것
             const resultIdString = result._id.toString();
         
