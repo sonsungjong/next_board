@@ -10,6 +10,12 @@ export default async function List(){
     const db = (await connectDB).db('mydb')                         // DB접속
     let result = await db.collection('post').find().toArray()       // post에서 데이터 가져옴
 
+    // _id 필드를 문자열로 변환
+    result = result.map(item =>({
+        ...item,
+        _id: item._id.toString(),
+    }));
+
     return(
         <>
             <div className="list-bg">
