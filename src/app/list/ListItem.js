@@ -26,13 +26,18 @@ export default function ListItem({result}){
                                     headers: {
                                         'Content-Type': 'application/json'
                                     },
-                                    body: JSON.stringify({ id: item._id }) // id를 JSON으로 전송
+                                    body: JSON.stringify({ id: item._id, email:item.email }) // id를 JSON으로 전송
                                 })
                                 .then((res)=>{
                                     if(res.status == 200){
                                         setListData(prevListData => prevListData.filter((i) => i._id !== item._id));
                                         return res.json();
-                                    }else{
+                                    }
+                                    else if(res.status == 400){
+                                        alert('글 작성자만 삭제할 수 있습니다')
+                                        console.log('계정 정보가 불일치');
+                                    }
+                                    else{
                                         return "500";
                                     }
                                 })
