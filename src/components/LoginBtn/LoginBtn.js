@@ -20,7 +20,7 @@ export default function LoginBtn({login})
                 !login ? (
                     null
                 ) : (
-                    <span className='login-name'>{login.user.name}</span>
+                    <span className='login-name'>{login?.user?.name}</span>
                 )
             }
         </>
