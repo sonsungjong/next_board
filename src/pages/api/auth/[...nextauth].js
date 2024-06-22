@@ -13,7 +13,8 @@ export const authOptions = {
         clientSecret: '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',
       }),
   ],
-  secret: 'sonsungjong0000'
+  secret: 'sonsungjong0000',
+  
 };
 
 export default NextAuth(authOptions);
@@ -40,6 +41,3 @@ export default NextAuth(authOptions);
 // 클라이언트ID : 491590133383-1tm2evi5eocuqg0edk4mihbhs7pttjea.apps.googleusercontent.com
 // 클라이언트 보안 비밀번호 : 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
 
-
-// 기본값 : JWT 방식
-// DB adapter를 사용해서 session 방식으로 변경 가능

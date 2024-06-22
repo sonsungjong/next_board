@@ -13,7 +13,3 @@ if(process.env.NODE_ENV === 'development'){
 }
 
 export {connectDB}
-
-//const client = await MongoClient.connect(url, options)
-//const db = client.db('mydb')
-//db.collection('post').find()
