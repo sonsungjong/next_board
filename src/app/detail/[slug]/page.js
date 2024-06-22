@@ -1,5 +1,6 @@
 // [폴더명] : 다이나믹 라우터
 
+import Comment from "@/components/comment/comment"
 import { connectDB } from "@/util/db"
 import { ObjectId } from "mongodb"
 
@@ -16,6 +17,7 @@ export default async function Detail({params})
             <h4>상세페이지</h4>
             <h4>{result?.title}</h4>
             <p>{result?.content}</p>
+            <Comment />
         </div>
     )
 }
