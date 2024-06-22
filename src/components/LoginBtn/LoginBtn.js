@@ -2,6 +2,7 @@
 
 import {signIn, signOut, useSession} from 'next-auth/react';
 import './LoginBtn.css';
+import Link from 'next/link';
 
 // onClick과 useState 등은 'use client' 에서만 사용 가능
 export default function LoginBtn({login})
@@ -18,7 +19,7 @@ export default function LoginBtn({login})
             
             {
                 !login ? (
-                    null
+                    <Link href='/register' className='user-signup'>회원가입</Link>
                 ) : (
                     <span className='login-name'>{login?.user?.name}</span>
                 )
