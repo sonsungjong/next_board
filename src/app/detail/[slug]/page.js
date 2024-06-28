@@ -8,7 +8,9 @@ import { ObjectId } from "mongodb"
 export default async function Detail({params})
 {
     const db = (await connectDB).db('mydb')                         // DB접속
-    let result = await db.collection('post').findOne({_id: ObjectId.createFromHexString(params.slug)})       // post에서 하나의 데이터만 가져옴(title이 안녕인 것 찾아서 가져오기)
+    let result = await db.collection('post').findOne(
+        {_id: ObjectId.createFromHexString(params.slug)}
+    )           // post에서 하나의 데이터만 가져옴(title이 안녕인 것 찾아서 가져오기)
     //console.log(result)           // 조회 결과
     //console.log(params.slug)           // slug 키 (폴더명 의존)
 
@@ -17,7 +19,7 @@ export default async function Detail({params})
             <h4>상세페이지</h4>
             <h4>{result?.title}</h4>
             <p>{result?.content}</p>
-            <Comment />
+            <Comment _id={result?._id.toString()}/>
         </div>
     )
 }
