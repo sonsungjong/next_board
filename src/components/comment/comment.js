@@ -37,7 +37,8 @@ export default function Comment({_id}){
             <input onChange={(e)=>{setComment(e.target.value)}} id='comment-input'/>
             <button onClick={()=>{
                 document.getElementById('comment-input').value = '';
-                fetch('/api/comment/new', {method:'POST', body: JSON.stringify({comment:comment, _id:_id}) })
+                fetch('/api/comment/new', {method:'POST', body: JSON.stringify(
+                    {comment:comment, _id:_id}) })
                 .then(res=>{
                     if(res.ok){
                         return res.json();

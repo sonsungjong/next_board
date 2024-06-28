@@ -7,6 +7,7 @@ export default async function handler(req, res){
     console.log(req.query)
 
     const db = (await connectDB).db('mydb')
-    let result = await db.collection('comment').find({parent:ObjectId.createFromHexString(req.query.id)}).toArray()
+    let result = await db.collection('comment').find(
+        {parent:ObjectId.createFromHexString(req.query.id)}).toArray()
     res.status(200).json(result)
 }
