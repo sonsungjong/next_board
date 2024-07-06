@@ -32,7 +32,7 @@ export default function Comment({_id}){
                         )
                     })
                 ) :
-                <p>댓글 로딩 중</p>
+                null
             }
             <input onChange={(e)=>{setComment(e.target.value)}} id='comment-input'/>
             <button onClick={()=>{
