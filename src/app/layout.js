@@ -41,3 +41,7 @@ export default async function RootLayout({ children }) {
 // OAuth : 타사이트 정보 이용 (소셜로그인)
 // Auth.js, NextAuth.js 라이브러리 제공
 
+// Vercel 배포
+// npm install -g vercel
+// vercel login
+// 프로젝트 디렉토리에서 vercel 입력해서 배포

@@ -5,15 +5,20 @@ import CredentialsProvider from 'next-auth/providers/credentials';
 import bcrypt from 'bcrypt';
 import { connectDB } from '@/util/db';
 
+const googleId = process.env.google_id;
+const googleSecret = process.env.google_secret;
+const githubId = process.env.github_id;
+const githubSecret = process.env.github_secret;
+
 export const authOptions = {
   providers: [
     GitHubProvider({
-      clientId: 'Ov23li82mgESSL5ZHg1b',
-      clientSecret: '3dd63157eb3928aa3c2f2cc99b6199c21c606e02',
+      clientId: githubId,
+      clientSecret: githubSecret,
     }),
     GoogleProvider({
-      clientId: '491590133383-1tm2evi5eocuqg0edk4mihbhs7pttjea.apps.googleusercontent.com',
-      clientSecret: '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',
+      clientId: googleId,
+      clientSecret: googleSecret,
     }),
     CredentialsProvider({
       // 아이디 및 비밀번호 로그인
