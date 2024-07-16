@@ -2,6 +2,7 @@ import Image from "next/image";
 import styles from "./page.module.css";
 import { MongoClient } from "mongodb";
 import { connectDB } from "@/util/db";
+import KakaoMap from "@/components/kakao_map/kakao_map";
 
 // 0. npx create-next-app@latest next_board
 // 1. pagejs, globalscss, pagemodulecss 를 비운다
@@ -26,9 +27,7 @@ export default async function Home() {
 
     return (
         <div>
-          ㅎㅇ
-          <p>{result[0]?.title}</p>
-          <p>{result[0]?.content}</p>
+          <KakaoMap />
         </div>
     );
   } catch (error) {
