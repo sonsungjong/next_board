@@ -14,3 +14,5 @@ export default function KakaoMap()
 }
 
 // npm install react-kakao-maps-sdk
+// 자바스크립트 API키 넣기
+// 플랫폼 허용 http://localhost:3000
